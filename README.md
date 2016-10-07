@@ -1,4 +1,4 @@
-# MySQL dump to CSV
+# MySQL dump to CSV or TSV
 ## Background
 A quickly-hacked-together Python script to turn mysqldump files to CSV files. Optimized for Wikipedia database dumps.
 
@@ -15,6 +15,10 @@ Just run `python mysqldump_to_csv.py` followed by the filename of an SQL file. Y
 
 `zcat dumpfile.sql.gz | python mysqldump_to_csv.py`
 
+or
+
+`zcat dumpfile.sql.gz | python mysqldump_to_tsv.py`
+
 ## How It Works
 The following SQL:
 
@@ -25,6 +29,10 @@ is turned into the following CSV:
 
     1,0,April,1,0,0,0.778582929065,20140312223924,20140312223929,4657771,20236,0
     2,0,August,0,0,0,0.123830928525,20140312221818,20140312221822,4360163,11466,0
+
+is turned into the following TSV:
+
+    1   0   April   1   0   0   0.778582929065  20140312223924  20140312223929  4657771     20236   0
 
 It's not too difficult to see what is going on, but you can certainly look at the source code to see exactly how the transformation is made.
 
